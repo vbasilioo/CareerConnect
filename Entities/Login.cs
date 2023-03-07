@@ -4,8 +4,11 @@ namespace CareerConnect.Entities{
     class Login{
         private Database database;
 
+        private Pessoa pessoa;
+
         public Login(){
             database = new Database();
+            pessoa = new Pessoa();
         }
 
         public void Iniciar(){
@@ -52,7 +55,7 @@ namespace CareerConnect.Entities{
 
             if(database.Login(usuario, senha) == true){
                 Console.Clear();
-                Console.WriteLine("Voce esta logado(a).");
+                pessoa.CriarPessoa();
             }else{
                 Console.Clear();
                 Console.WriteLine("Usuario ou senha invalidos, tente novamente.");
@@ -67,7 +70,7 @@ namespace CareerConnect.Entities{
             string senha = Console.ReadLine();
 
             if(database.CriarConta(usuario, senha)){
-                Console.WriteLine("Sua conta foi criada, acesse usando seu usuário e sua senha.");
+                Console.WriteLine("Sua conta foi criada, acesse usando seu usuario e sua senha.");
             }else{
                 Console.WriteLine("Falha ao criar uma conta! Tente novamente.");
             }
