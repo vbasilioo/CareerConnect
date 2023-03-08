@@ -1,4 +1,4 @@
-﻿using CareerConnect.Entities;
+﻿using CareerConnect.DAO;
 
 namespace CareerConnect{
     class Program{

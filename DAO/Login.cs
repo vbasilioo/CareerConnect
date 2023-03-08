@@ -1,6 +1,6 @@
 using System;
 
-namespace CareerConnect.Entities{
+namespace CareerConnect.DAO{
     class Login{
         private Database database;
 

@@ -2,10 +2,10 @@
 // PERGUNTAR
 // DEPOIS DISSO, APAGAR ESSES COMENTARIOS E ADICIONAR ELE COMO PARAMETRO NO CRIAR PESSOA
 
-namespace CareerConnect.Entities{
+namespace CareerConnect.DAO{
     class Pessoa{
         private string _nome; 
-        private int _idade;
+        private int _idade { get; set; }
         private string _email;
         private int _telefone;
         private string _endereco;
@@ -64,6 +64,37 @@ namespace CareerConnect.Entities{
                 this._endereco = endereco;
                 Console.Clear();
                 Console.WriteLine($"{nome}, o seu cadastro foi finalizado. Faça bom uso do CareerConnect!");
+
+                int acesso;
+
+                do{
+                    Console.WriteLine("Voce deseja acessar (digite numeros): ");
+                    Console.WriteLine("1. Tornar-se (candidato, coordenador, empresa)\n" +
+                    "2. Area de oportunidades\n" +
+                    "3. Area de Candidatura\n" +
+                    "4. Area de Proposta\n" +
+                    "5. Area de Propostas\n0. Sair");
+                    acesso = int.Parse(Console.ReadLine());
+
+                    switch(acesso){
+                        default:
+                            
+                            break;
+                        case 0:
+                            break;
+                        case 1:
+                            break;
+                        case 2:
+                            break;
+                        case 3:
+                            break;
+                        case 4:
+                            break;
+                        case 5:
+                            break;
+                    }
+
+                }while(acesso!=0);
             }
         }
 
@@ -112,6 +143,28 @@ namespace CareerConnect.Entities{
             set{
                 if(value != null && value.Length > 0){
                     this._nome = value;
+                }
+            }
+        }
+
+        public string Email{
+            get{
+                return _email;
+            }
+            set{
+                if(value != null && value.Length > 0){
+                    this._email = value;
+                }
+            }
+        }
+
+        public string Endereco{
+            get{
+                return _endereco;
+            }
+            set{
+                if(value != null && value.Length > 0){
+                    this._endereco = value;
                 }
             }
         }

@@ -1,23 +1,27 @@
-namespace CareerConnect.Entities{
+namespace CareerConnect.DAO{
     class Database{
+        Dictionary<string, string> usuarios;
         Dictionary<string, string> contas;
 
         public Database(){
+            usuarios = new Dictionary<string, string>();
             contas = new Dictionary<string, string>();
         }
 
+        /* LOGIN */
+
         public bool CriarConta(string usuario, string senha){ // recebendo parametros do Login.cs
-            if(contas.ContainsKey(usuario)){ //verificando se existe o usuario
+            if(usuarios.ContainsKey(usuario)){ //verificando se existe o usuario
                 return false;
             }else{
-                contas.Add(usuario, senha);
+                usuarios.Add(usuario, senha);
                 return true;
             }
         }
 
         public bool Login(string usuario, string senha){
-            if(contas.ContainsKey(usuario)){
-                if(contas[usuario] == senha){ //verificando se no dicionario (contas) na posicao (usuario), se o usuario inserido é compativel com a senha
+            if(usuarios.ContainsKey(usuario)){
+                if(usuarios[usuario] == senha){ //verificando se no dicionario (usuarios) na posicao (usuario), se o usuario inserido é compativel com a senha
                     Console.WriteLine("Voce realizou o login.");
                     return true;
                 }
@@ -26,11 +30,11 @@ namespace CareerConnect.Entities{
         }
 
         public bool Autenticar(string usuario){ // verifica se usuario existe
-            return contas.ContainsKey(usuario);
+            return usuarios.ContainsKey(usuario);
         }
 
         public void EsqueciSenha(string usuario, string senha){
-            contas[usuario] = senha;
+            usuarios[usuario] = senha;
         }
     }
 }
